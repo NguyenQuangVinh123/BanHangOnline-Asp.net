@@ -1,0 +1,52 @@
+﻿
+<div id="header">
+    <div class="header-top">
+        <div class="container">
+            <div class="pull-left auto-width-left">
+                <ul class="top-menu menu-beta l-inline">
+                    <li><a href="#"><i class="fa fa-home"></i> Địa Chỉ</a></li>
+                    <li><a href="#"><i class="fa fa-phone"></i> SDT</a></li>
+                </ul>
+            </div>
+            <div class="pull-right auto-width-right">
+                @Html.Partial("~/Views/Home/SignInSignUpPartial.cshtml")
+            </div>
+            <div class="clearfix"></div>
+        </div> <!-- .container -->
+    </div> <!-- .header-top -->
+    <div class="header-body">
+        <div class="container beta-relative">
+            <div class="pull-left">
+                <a href="/Home/Index" id="logo"><img src="~/image/logo.png" width="100px" alt=""></a>
+            </div>
+            <div class="pull-right beta-components space-left ov">
+                <div class="space10">&nbsp;</div>
+                <div class="beta-comp">
+                    <!--<form role="search" method="get" id="searchform" action="/">
+
+                        <input type="text" value="" name="s" id="s" placeholder="Nhập từ khóa..." />
+                        <button class="fa fa-search" type="submit" id="searchsubmit"></button>
+                    </form> -->
+                    @using (Html.BeginForm("KetQuaTimKiem", "Home", FormMethod.Post))
+                    {
+                        @Html.TextBox("txtTimKiem", "", htmlAttributes: new { @Class = "TextBoxTimKiem", @placeHolder = "Nhập vào từ khóa cần tìm..." })
+                    }
+                    <!-- <button class="fa fa-search" type="submit" id="searchsubmit"></button> -->
+                </div>
+                <div class="beta-comp" id="betacomp">
+                    <div class="cart" id="cart">
+                        @Html.Action("GioHangPartial","GioHang")
+                    </div> <!-- .cart -->
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div> <!-- .container -->
+    </div> <!-- .header-body -->
+    <div class="header-bottom" style="background-color: #0277b8;">
+        <div class="container">
+            <a class="visible-xs beta-menu-toggle pull-right" href="#"><span class='beta-menu-toggle-text'>Menu</span> <i class="fa fa-bars"></i></a>
+            <div class="visible-xs clearfix"></div>
+            @Html.Action("MenuPartial", "Home")
+        </div> <!-- .container -->
+    </div> <!-- .header-bottom -->
+</div> <!-- #header -->

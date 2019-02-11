@@ -1,0 +1,535 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2580E860-A3AC-4EE9-9DD6-396093D4BFD4}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>BanHangOnline</RootNamespace>
+    <AssemblyName>BanHangOnline</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.4\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.4\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.4\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.11.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.5.0.2\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Diagnostics.DiagnosticSource">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.4.4.1\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.TelemetryCorrelation">
+      <HintPath>..\packages\Microsoft.AspNet.TelemetryCorrelation.1.0.0\lib\net45\Microsoft.AspNet.TelemetryCorrelation.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.5.1\lib\net46\Microsoft.ApplicationInsights.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Agent.Intercept">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.2.4.0\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.5.1\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.5.1\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.5.1\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.5.1\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.5.1\lib\net45\Microsoft.AI.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\GioHangController.cs" />
+    <Compile Include="Controllers\TimKiemController.cs" />
+    <Compile Include="Encrytor.cs" />
+    <Compile Include="Models\GioHang.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bill.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\bill_detail.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\KhachHang.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\MetaData\KhachHang.metadata.cs" />
+    <Compile Include="Models\MetaData\product.metadata.cs" />
+    <Compile Include="Models\product.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyBanHangModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBanHangModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyBanHangModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\QuanLyBanHangModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>QuanLyBanHangModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Slideshow.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sp_helpdiagrams_Result.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\sysdiagram.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\type_product.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Unit.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\user.cs">
+      <DependentUpon>QuanLyBanHangModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\css\huong-style.css" />
+    <Content Include="Content\css\style.css" />
+    <Content Include="Content\JS\main.js" />
+    <Content Include="Content\PagedList.css" />
+    <Content Include="Content\TempleteAdmin\css\mos-style.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\Site.css" />
+    <Content Include="image\product\111.jpg" />
+    <Content Include="image\product\1234.jpg" />
+    <Content Include="image\product\1430967449-pancake-sau-rieng-6.jpg" />
+    <Content Include="image\product\1434429117-banh-su-kem-chien-20.jpg" />
+    <Content Include="image\product\20131108144733.jpg" />
+    <Content Include="image\product\210215-banh-sinh-nhat-rau-cau-body- %286%29.jpg" />
+    <Content Include="image\product\234.jpg" />
+    <Content Include="image\product\40819_food_pizza.jpg" />
+    <Content Include="image\product\50020041-combo-20-banh-su-que-pho-mai-9.jpg" />
+    <Content Include="image\product\544bc48782741.png" />
+    <Content Include="image\product\54eaf93713081_-_07-germany-tuna.jpg" />
+    <Content Include="image\product\all1%29.jpg" />
+    <Content Include="image\product\banh kem sinh nhat.jpg" />
+    <Content Include="image\product\Banh-kem %286%29.jpg" />
+    <Content Include="image\product\banh-man-thu-vi-nhat-1.jpg" />
+    <Content Include="image\product\banh-mi-nhan-man.jpg" />
+    <Content Include="image\product\banh-su-kem-ca-phe-1.jpg" />
+    <Content Include="image\product\banhbonglantrung.jpg" />
+    <Content Include="image\product\banhbonglantrungmuoi.jpg" />
+    <Content Include="image\product\banhkem-dau.jpg" />
+    <Content Include="image\product\banhkem.jpg" />
+    <Content Include="image\product\banhtraicay.jpg" />
+    <Content Include="image\product\Caramen-pudding636099031482099583.jpg" />
+    <Content Include="image\product\chicken black pepper_large-900x900.jpg" />
+    <Content Include="image\product\chocolate-fruit636098975917921990.jpg" />
+    <Content Include="image\product\COFFE-CHOCOLATE636098977566220885.jpg" />
+    <Content Include="image\product\combo-20-banh-su-que-kem-sua-tuoi-phu-socola.jpg" />
+    <Content Include="image\product\crepe-chocolate.jpg" />
+    <Content Include="image\product\crepe-chuoi.jpg" />
+    <Content Include="image\product\crepe-dao.jpg" />
+    <Content Include="image\product\crepe-phap.jpg" />
+    <Content Include="image\product\crepe-tao.jpg" />
+    <Content Include="image\product\crepe-traxanh.jpg" />
+    <Content Include="image\product\crepedau.jpg" />
+    <Content Include="image\product\cupcake.jpg" />
+    <Content Include="image\product\dung-khoai-tay-lam-banh-gato-man-cuc-ngon.jpg" />
+    <Content Include="image\product\flower-fruits636102461981788938.jpg" />
+    <Content Include="image\product\foody-banh-su-que-635930347896369908.jpg" />
+    <Content Include="image\product\Fruit-Cake.jpg" />
+    <Content Include="image\product\Fruit-Cake.png" />
+    <Content Include="image\product\Fruit-Cake_7971.jpg" />
+    <Content Include="image\product\Fruit-Cake_7976.jpg" />
+    <Content Include="image\product\Fruit-Cake_7979.jpg" />
+    <Content Include="image\product\Fruit-Cake_7981.jpg" />
+    <Content Include="image\product\hawaiian paradise_large-900x900.jpg" />
+    <Content Include="image\product\He-Thong-Banh-Su-Singapore-Chewy-Junior.jpg" />
+    <Content Include="image\product\Macaron9.jpg" />
+    <Content Include="image\product\mango-mousse-cake.jpg" />
+    <Content Include="image\product\MATCHA-MOUSSE.jpg" />
+    <Content Include="image\product\maxresdefault.jpg" />
+    <Content Include="image\product\maxresdefault1.jpg" />
+    <Content Include="image\product\p1392962167_banh74.jpg" />
+    <Content Include="image\product\Peach-Cake_3294.jpg" />
+    <Content Include="image\product\Peach-Cake_3300.jpg" />
+    <Content Include="image\product\pizza-miami.jpg" />
+    <Content Include="image\product\pizza.jpg" />
+    <Content Include="image\product\raspberry.jpg" />
+    <Content Include="image\product\saurieng-dua.jpg" />
+    <Content Include="image\product\seafood curry_large-900x900.jpg" />
+    <Content Include="image\product\sli12.jpg" />
+    <Content Include="image\product\strawberry-delight636102445035635173.jpg" />
+    <Content Include="image\product\sukem.jpg" />
+    <Content Include="image\product\sukemdau.jpg" />
+    <Content Include="image\slide\banner1.jpg" />
+    <Content Include="image\slide\banner2.jpg" />
+    <Content Include="image\slide\banner3.jpg" />
+    <Content Include="image\slide\banner4.jpg" />
+    <Content Include="Models\QuanLyBanHangModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>QuanLyBanHangModel.Context.cs</LastGenOutput>
+      <DependentUpon>QuanLyBanHangModel.edmx</DependentUpon>
+    </Content>
+    <Content Include="Models\QuanLyBanHangModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>QuanLyBanHangModel.edmx</DependentUpon>
+      <LastGenOutput>QuanLyBanHangModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="ApplicationInsights.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <EntityDeploy Include="Models\QuanLyBanHangModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>QuanLyBanHangModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\QuanLyBanHangModel.edmx.diagram">
+      <DependentUpon>QuanLyBanHangModel.edmx</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-3.3.1.intellisense.js" />
+    <Content Include="Scripts\jquery-3.3.1.js" />
+    <Content Include="Scripts\jquery-3.3.1.min.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.js" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="tinymce_4.7.13\tinymce\changelog.txt" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\jquery.tinymce.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\license.txt" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\advlist\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\anchor\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\autolink\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\autoresize\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\autosave\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\bbcode\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\charmap\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\codesample\css\prism.css" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\codesample\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\code\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\colorpicker\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\contextmenu\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\directionality\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-cool.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-cry.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-embarassed.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-foot-in-mouth.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-frown.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-innocent.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-kiss.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-laughing.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-money-mouth.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-sealed.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-smile.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-surprised.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-tongue-out.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-undecided.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-wink.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\img\smiley-yell.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\emoticons\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\fullpage\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\fullscreen\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\help\img\logo.png" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\help\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\hr\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\imagetools\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\image\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\importcss\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\insertdatetime\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\legacyoutput\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\link\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\lists\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\media\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\nonbreaking\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\noneditable\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\pagebreak\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\paste\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\preview\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\print\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\save\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\searchreplace\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\spellchecker\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\tabfocus\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\table\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\template\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\textcolor\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\textpattern\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\toc\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\visualblocks\css\visualblocks.css" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\visualblocks\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\visualchars\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\plugins\wordcount\plugin.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\content.inline.min.css" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\content.min.css" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\content.mobile.min.css" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.svg" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.svg" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\img\anchor.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\img\loader.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\img\object.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\img\trans.gif" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\skin.min.css" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\skin.mobile.min.css" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\themes\inlite\theme.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\themes\mobile\theme.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\themes\modern\theme.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\tinymce.min.js" />
+    <Content Include="tinymce_4.7.13\tinymce\LICENSE.TXT" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Layout\NguoiDungLayout.cshtml" />
+    <Content Include="Views\Home\MenuPartial.cshtml" />
+    <Content Include="Views\Home\FooterPartial.cshtml" />
+    <Content Include="Views\Home\SignInSignUpPartial.cshtml" />
+    <Content Include="Views\Home\SliderPartial.cshtml" />
+    <Content Include="Views\Home\TopProductPartial.cshtml" />
+    <Content Include="Views\Home\NewProductPartial.cshtml" />
+    <Content Include="Views\Home\XemChiTiet.cshtml" />
+    <Content Include="Views\Home\Header.cshtml" />
+    <Content Include="Views\Home\SPTheoLoaiSP.cshtml" />
+    <Content Include="Views\Home\LeftSideSPTheoLoaiSP.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\DangKy.cshtml" />
+    <Content Include="Views\Home\DangNhap.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\LeftBarPartial.cshtml" />
+    <Content Include="Views\Layout\AdminLayOut.cshtml" />
+    <Content Include="Views\Admin\SanPham.cshtml" />
+    <Content Include="Views\Admin\DanhMuc.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\langs\readme.md" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-mobile.woff" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.eot" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.ttf" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce-small.woff" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.eot" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.ttf" />
+    <Content Include="tinymce_4.7.13\tinymce\js\tinymce\skins\lightgray\fonts\tinymce.woff" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Admin\Details.cshtml" />
+    <Content Include="Views\Admin\Delete.cshtml" />
+    <Content Include="Views\Admin\CreateProductType.cshtml" />
+    <Content Include="Views\Admin\EditTypeProduct.cshtml" />
+    <Content Include="Views\Admin\DetailsTypeProduct.cshtml" />
+    <Content Include="Views\Home\KetQuaTimKiem.cshtml" />
+    <Content Include="Views\Admin\LoginAdmin.cshtml" />
+    <Content Include="Views\GioHang\GioHang.cshtml" />
+    <Content Include="Views\GioHang\GioHangPartial.cshtml" />
+    <Content Include="Views\GioHang\SuaGioHang.cshtml" />
+    <Content Include="Views\Admin\HoaDon.cshtml" />
+    <Content Include="Views\GioHang\DatHang.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="packages.config" />
+    <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
+    <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>55902</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:55902/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.2.6.1\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.8\build\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

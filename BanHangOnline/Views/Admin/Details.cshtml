@@ -1,0 +1,78 @@
+﻿@model BanHangOnline.Models.product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Layout/AdminLayOut.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.name_product)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_product)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.description)
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unit_price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unit_price)
+        </dd>
+
+        
+
+
+        <dt>
+            @Html.DisplayNameFor(model => model.image)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.image)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.unit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.unit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type_product.name_type_product)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type_product.name_type_product)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.best)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.best)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { @id_product = Model.id_product }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

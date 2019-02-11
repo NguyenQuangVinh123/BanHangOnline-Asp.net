@@ -1,0 +1,15 @@
+﻿<ul class="top-details menu-beta l-inline">
+    @if (Session["Email"] != null)
+    {
+        
+        <li><a href="#"><i class="fa fa-user"></i>Xin chào @Session["Email"].ToString()</a></li>
+        <li>@Html.ActionLink("Đăng Xuất","DangXuat")</li>
+
+    }
+    else
+    {
+        <li><a href="#"><i class="fa fa-user"></i>Tài khoản</a> </li>
+        <li>@Html.ActionLink("Đăng ký", "DangKy", null, htmlAttributes: new { @Class = "DangKy" })</li>
+        <li>@Html.ActionLink("Đăng nhập", "DangNhap", null, htmlAttributes: new { @Class = "DangNhap" })</li>
+    }
+</ul>

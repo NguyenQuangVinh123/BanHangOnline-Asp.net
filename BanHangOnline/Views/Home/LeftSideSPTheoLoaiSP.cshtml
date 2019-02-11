@@ -1,0 +1,9 @@
+﻿@using BanHangOnline.Models;
+@model List<type_product>
+
+<ul class="aside-menu">
+    @foreach (var items in Model)
+    {
+        <li><a href="@Url.Action("SPTheoLoaiSP","Home",new { @id_type_product=items.id_type_product })">@items.name_type_product</a></li>
+    }
+</ul>

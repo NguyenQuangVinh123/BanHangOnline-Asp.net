@@ -1,0 +1,29 @@
+﻿@model BanHangOnline.Models.type_product
+
+@{
+    ViewBag.Title = "DetailsTypeProduct";
+    Layout = "~/Views/Layout/AdminLayOut.cshtml";
+}
+
+<h2>DetailsTypeProduct</h2>
+
+<div>
+    <h4>type_product</h4>
+    <hr />
+    <dl class="dl-horizontal">
+       
+
+        <dt>
+            @Html.DisplayNameFor(model => model.name_type_product)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.name_type_product)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

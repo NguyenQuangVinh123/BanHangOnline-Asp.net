@@ -1,0 +1,46 @@
+﻿@using BanHangOnline.Models;
+@using PagedList.Mvc;
+@model PagedList.PagedList<type_product>
+
+
+@{
+    ViewBag.Title = "DanhMuc";
+    Layout = "~/Views/Layout/AdminLayOut.cshtml";
+}
+
+<h2>DanhMuc</h2>
+
+<p>
+    @Html.ActionLink("Tạo danh mục mới", "CreateProductType")
+</p>
+<table class="table table-bordered" style="width:100%">
+    <tr>
+        <th>
+            Mã loại sản phẩm
+        </th>
+        <th>
+            Tên loại sản phẩm
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.id_type_product)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.name_type_product)
+            </td>
+            <td>
+                @Html.ActionLink("Edit","EditTypeProduct", new { @id_type_product = item.id_type_product }) |
+                @Html.ActionLink("Details", "DetailsTypeProduct", new { @id_type_product = item.id_type_product }) |
+                @Html.ActionLink("Delete", "DeleteTypeProduct", new { @id_type_product = item.id_type_product })
+            </td>
+        </tr>
+    }
+
+</table>
+<div style="float:right;padding-right:25px;">@Html.PagedListPager(Model, page => Url.Action("SanPham", new { page = page }))</div>
+

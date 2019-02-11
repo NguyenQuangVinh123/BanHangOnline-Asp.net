@@ -1,0 +1,33 @@
+﻿@using BanHangOnline.Models;
+@model List<product>
+
+@foreach (var items in Model)
+{
+<div class="col-sm-3">
+    <div class="single-item">
+        <div class="single-item-header">
+            <a href="@Url.Action("XemChiTiet","Home",new { @id_product=items.id_product })"><img src="@Url.Content("~/image/product/"+ items.image)" alt="" width="300px" height="270px"></a>
+        </div>
+        <div class="single-item-body">
+            <p class="single-item-title">@items.name_product</p>
+            <p class="single-item-price">
+                <span>@string.Format("{0:0,0}",@items.unit_price) VNĐ</span>
+            </p>
+        </div>
+        <div class="single-item-caption">
+            @using (Html.BeginForm("ThemGioHang", "GioHang", new {@id_product = items.id_product, @strUrl = @Request.Url.ToString() }))
+
+            {
+                
+                    <button type="submit" class="add-to-cart pull-left"  name="add"><i class="fa fa-shopping-cart"></i></button>
+               
+            }            
+            <a class="beta-btn primary" href="@Url.Action("XemChiTiet","Home",new { @id_product=items.id_product })">Details <i class="fa fa-chevron-right"></i></a>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+    <div class="mb25"></div>
+</div>
+}
+
+

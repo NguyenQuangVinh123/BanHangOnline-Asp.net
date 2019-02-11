@@ -1,0 +1,38 @@
+﻿@using BanHangOnline.Models
+@model List<GioHang>
+    
+        @foreach (var item in Model)
+        {
+    <div class="cart-item">
+        <div class="media">
+            <a class="pull-left" href="#"><img src="~/image/product/@item.image" alt="" width="50px" height="50px"></a>
+            <div class="media-body">
+                <span class="cart-item-title">@item.name_product</span>
+
+                <span class="cart-item-amount">@item.quantity*<span>@String.Format("{0:0,0}", item.unit_price) VNĐ</span></span>
+                <span style="float:right">@Html.ActionLink("Xóa", "XoaGioHang", new { @id_product = item.id_product })</span>
+            </div>
+           
+        </div>
+    </div>
+
+        }
+    <div class="cart-caption">
+        @Html.ActionLink("Edit Cart", "SuaGioHang")
+        <div class="cart-total text-right">Tổng tiền: <span class="cart-total-value"> @ViewBag.TongTien VNĐ</span></div>
+        <div class="clearfix"></div>
+        <div class="center">
+            <div class="space10">&nbsp;</div>
+            @*@using (Html.BeginForm("DatHang", "GioHang"))
+            {
+               <button type="submit" id="btndathang"><i class="fa fa-shopping-cart"></i>Đặt hàng</button>
+            }*@
+            <a href="@Url.Action("DatHang","GioHang")">Đặt hàng</a>
+           
+        </div>
+    </div>
+
+    
+  
+
+

@@ -1,0 +1,211 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBShopBanHangModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="bill">
+    <Key>
+      <PropertyRef Name="id_bill" />
+    </Key>
+    <Property Name="id_bill" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="total" Type="float" />
+    <Property Name="payment" Type="nvarchar" MaxLength="255" />
+    <Property Name="date_order" Type="date" />
+    <Property Name="status" Type="nvarchar" MaxLength="255" />
+    <Property Name="MaKH" Type="int" />
+    <Property Name="TenKH" Type="nvarchar" MaxLength="255" />
+    <Property Name="SDTKH" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="DiaChiKH" Type="nvarchar" MaxLength="225" />
+  </EntityType>
+  <EntityType Name="bill_detail">
+    <Key>
+      <PropertyRef Name="id_bill_detail" />
+    </Key>
+    <Property Name="id_bill_detail" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="id_bill" Type="int" Nullable="false" />
+    <Property Name="id_product" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="unit_price" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="KhachHang">
+    <Key>
+      <PropertyRef Name="MaKH" />
+    </Key>
+    <Property Name="MaKH" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="HoTen" Type="nvarchar" MaxLength="50" />
+    <Property Name="NgaySinh" Type="date" />
+    <Property Name="GioiTinh" Type="nvarchar" MaxLength="3" />
+    <Property Name="DienThoai" Type="numeric" Precision="18" Scale="0" />
+    <Property Name="TaiKhoan" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="MatKhau" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nchar" MaxLength="200" Nullable="false" />
+    <Property Name="DiaChi" Type="nchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="products">
+    <Key>
+      <PropertyRef Name="id_product" />
+    </Key>
+    <Property Name="id_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_product" Type="nvarchar" MaxLength="255" />
+    <Property Name="description" Type="text" />
+    <Property Name="unit_price" Type="int" />
+    <Property Name="promotion_price" Type="int" />
+    <Property Name="image" Type="nvarchar" MaxLength="255" />
+    <Property Name="unit" Type="nvarchar" MaxLength="255" />
+    <Property Name="id_type_product" Type="int" />
+    <Property Name="best" Type="int" />
+  </EntityType>
+  <EntityType Name="Slideshows">
+    <Key>
+      <PropertyRef Name="id_slideshow" />
+    </Key>
+    <Property Name="id_slideshow" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ImagePath" Type="varchar" MaxLength="255" />
+    <Property Name="Link" Type="varchar" MaxLength="255" />
+    <Property Name="Status" Type="varchar" MaxLength="255" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="type_product">
+    <Key>
+      <PropertyRef Name="id_type_product" />
+    </Key>
+    <Property Name="id_type_product" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name_type_product" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'DBShopBanHang.dbo.Unit' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="id_type" />
+    </Key>
+    <Property Name="id_type" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="name_type" Type="varbinary" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="users">
+    <Key>
+      <PropertyRef Name="id_user" />
+    </Key>
+    <Property Name="id_user" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="full_name" Type="nvarchar" MaxLength="255" />
+    <Property Name="email" Type="nvarchar" MaxLength="255" />
+    <Property Name="password" Type="nvarchar" MaxLength="50" />
+    <Property Name="roles" Type="nvarchar" MaxLength="255" />
+  </EntityType>
+  <Association Name="FK_bill_bill_detail">
+    <End Role="bill" Type="Self.bill" Multiplicity="1" />
+    <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="bill">
+        <PropertyRef Name="id_bill" />
+      </Principal>
+      <Dependent Role="bill_detail">
+        <PropertyRef Name="id_bill" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_bill_detail_product">
+    <End Role="products" Type="Self.products" Multiplicity="1" />
+    <End Role="bill_detail" Type="Self.bill_detail" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="products">
+        <PropertyRef Name="id_product" />
+      </Principal>
+      <Dependent Role="bill_detail">
+        <PropertyRef Name="id_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_customer_bill">
+    <End Role="KhachHang" Type="Self.KhachHang" Multiplicity="0..1" />
+    <End Role="bill" Type="Self.bill" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="KhachHang">
+        <PropertyRef Name="MaKH" />
+      </Principal>
+      <Dependent Role="bill">
+        <PropertyRef Name="MaKH" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_products_type_product">
+    <End Role="type_product" Type="Self.type_product" Multiplicity="0..1" />
+    <End Role="products" Type="Self.products" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="type_product">
+        <PropertyRef Name="id_type_product" />
+      </Principal>
+      <Dependent Role="products">
+        <PropertyRef Name="id_type_product" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="DBShopBanHangModelStoreContainer">
+    <EntitySet Name="bill" EntityType="Self.bill" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="bill_detail" EntityType="Self.bill_detail" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="KhachHang" EntityType="Self.KhachHang" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="products" EntityType="Self.products" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Slideshows" EntityType="Self.Slideshows" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="type_product" EntityType="Self.type_product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="users" EntityType="Self.users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Unit" EntityType="Self.Unit" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Unit].[id_type] AS [id_type], 
+    [Unit].[name_type] AS [name_type]
+    FROM [dbo].[Unit] AS [Unit]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_bill_bill_detail" Association="Self.FK_bill_bill_detail">
+      <End Role="bill" EntitySet="bill" />
+      <End Role="bill_detail" EntitySet="bill_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_bill_detail_product" Association="Self.FK_bill_detail_product">
+      <End Role="products" EntitySet="products" />
+      <End Role="bill_detail" EntitySet="bill_detail" />
+    </AssociationSet>
+    <AssociationSet Name="FK_customer_bill" Association="Self.FK_customer_bill">
+      <End Role="KhachHang" EntitySet="KhachHang" />
+      <End Role="bill" EntitySet="bill" />
+    </AssociationSet>
+    <AssociationSet Name="FK_products_type_product" Association="Self.FK_products_type_product">
+      <End Role="type_product" EntitySet="type_product" />
+      <End Role="products" EntitySet="products" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

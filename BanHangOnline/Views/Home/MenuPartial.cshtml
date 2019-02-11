@@ -1,0 +1,20 @@
+﻿@using BanHangOnline.Models;
+@model List<type_product>
+  
+<nav class="main-menu">
+    <ul class="l-inline ov">
+        <li><a href="Index">Trang chủ</a></li>
+        <li>
+            <a href="#">Sản phẩm</a>
+            <ul class="sub-menu">
+                @foreach (var items in Model)
+                {
+                <li><a href="@Url.Action("SPTheoLoaiSP","Home",new { @id_type_product=items.id_type_product })">@items.name_type_product</a></li>
+                }
+            </ul>
+        </li>
+        <li><a href="About">Giới thiệu</a></li>
+        <li><a href="Contact">Liên hệ</a></li>
+    </ul>
+    <div class="clearfix"></div>
+</nav>

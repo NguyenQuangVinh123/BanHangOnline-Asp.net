@@ -1,0 +1,30 @@
+﻿@{ 
+    Layout = null;
+}    
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Shop Bán Hàng</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E=" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    @*<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">*@
+    <link rel="stylesheet" title="style" href="~/Content/css/style.css">
+    <link rel="stylesheet" title="style" href="~/Content/css/huong-style.css">
+    <script language="JavaScript" src="/JS/main.js"></script>
+    <script language="JavaScript" src="/JS/ajax.js"></script>
+
+
+
+</head>
+<body>
+   
+        @Html.Partial("~/Views/Home/Header.cshtml")
+        @RenderBody()
+        @Html.Partial("~/Views/Home/FooterPartial.cshtml")
+   
+</body>
+</html>

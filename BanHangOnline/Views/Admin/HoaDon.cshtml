@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BanHangOnline.Models.bill_detail>
+
+@{
+    ViewBag.Title = "HoaDon";
+    Layout = "~/Views/Layout/AdminLayOut.cshtml";
+}
+
+<h2>HoaDon</h2>
+
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.product.name_product)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.unit_price)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bill.payment)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.quantity)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.product.name_product)
+        </td>
+
+        <td>
+            @Html.DisplayFor(modelItem => item.unit_price)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.bill.payment)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.quantity)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.id_bill_detail }) |
+
+        </td>
+    </tr>
+}
+
+</table>

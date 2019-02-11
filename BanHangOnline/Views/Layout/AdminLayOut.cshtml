@@ -1,0 +1,58 @@
+﻿@using BanHangOnline.Models;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/TempleteAdmin/css/mos-style.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+            crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script src="https://cloud.tinymce.com/stable/tinymce.min.js"></script>
+    
+
+</head>
+<body>
+    @{
+        if (Session["Email"] == null)
+        {
+            Response.Redirect("~/Admin/LoginAdmin");
+        }
+       
+    }
+   
+    <div id="header">
+        <div class="inHeader">
+            @if (Session["Email"] != null)
+            {
+                <div class="mosAdmin">
+                    Hello, @Session["Email"].ToString()<br>
+
+                    @Html.ActionLink("Logout", "DangXuat", "Admin")
+                </div>
+            }
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div id="leftBar">
+        <ul>
+            <li><a href="@Url.Action("Index","Admin")">Trang chủ</a></li>
+            <li><a href="@Url.Action("DanhMuc","Admin")">Danh mục</a></li>
+            <li><a href="@Url.Action("SanPham","Admin")">Sản phẩm</a></li>
+            <li><a href="@Url.Action("HoaDon","Admin")">Hóa đơn</a></li>
+        </ul>
+    </div>
+    <div id="rightContent">
+        @RenderBody()
+    </div>
+
+</body>
+</html>
